@@ -18,7 +18,7 @@ const TradingPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/user/api`, {
+        const response = await fetch(`https://trading-web-server-backend.vercel.app/user/api`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });

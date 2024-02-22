@@ -20,7 +20,7 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/user/signup", {
+      const response = await fetch("https://trading-web-server-backend.vercel.app/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
