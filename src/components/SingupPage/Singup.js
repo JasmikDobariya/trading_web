@@ -11,7 +11,7 @@ const SignupPage = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,13 +20,16 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://trading-web-server-backend.vercel.app/user/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://trading-web-server-backend.vercel.app/user/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
         setSuccessMessage(data.msg);
@@ -36,8 +39,7 @@ const SignupPage = () => {
           email: "",
           password: "",
         });
-        router.push("/trading")
-
+        router.push("/trading");
       } else {
         setSuccessMessage("");
         setErrorMessage(data.error);
